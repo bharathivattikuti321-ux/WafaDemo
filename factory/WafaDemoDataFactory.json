@@ -1,0 +1,15 @@
+{
+	"name": "WafaDemoDataFactory",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "efbc39eb-ea7c-41d5-9002-3688159ccd71",
+		"tenantId": "f619260d-f4c6-4638-a5ba-135976b774bc"
+	}
+}
