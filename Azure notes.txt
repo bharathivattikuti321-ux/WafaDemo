@@ -1,0 +1,231 @@
+SQl username and password:
+username :
+password : Bharathi@12345
+what is Azure?
+Azure is cloud provided by Microsoft.
+Resource group is a folder which contains all your resources.
+Services offered by azure:
+Compute Services - Virtual Machines.
+Storage Services - Databases, Data ware houses, Data Lake storages.
+Networking Services - Virtual Networks, Load Balancers.
+App Hosting Services - app services.
+Artificial Intelligence Services-
+IoT Services
+Integration Services - Azure data factory.
+SSIS: source -> Transformation -> Destination.
+Security Services - Azure Monitoring Services & Azure Active Directory.
+Only Pay for what you use.
+ADF.
+SDK(Software Development Kit) or Tools available for azure resource to manage.
+To automate resources creation and management process.
+Azure for .net Developers.
+Azure for Python Developers.
+Azure for Node.js Developers.
+Azure for Java Developers.
+Azure for Go Developers.
+Azure for REST APIS.
+List of Tools for Azure:
+Azure CLI.
+Azure Powershell.
+Azure Portal.
+Azure MobileApp.
+Subscription: Google -> azure free subscription
+-> Create your free azure account today.
+-> Click on Start Free
+Different Ways to work with Azure Data Factory:
+Azure Portal UI.
+Azure PowerShell(Install Azure PowerShell).
+.Net.
+Python.
+Resource Manager Template.(Azure PowerShell Az Module)
+PipeLines and Activities in Azure Data Factory:
+PipeLine: It is  logical grouping of activities that together perform a task.
+Eg: Pipeline can have set of Activities that take data from ADLS and perform some transformation of data using U-SQL and load data into SQL DB.
+Activities in a pipeline defines actions to perform on data
+Eg : Copy Data Activity can read data from one location of Blob Storage and load it to other location on Blob Storage.
+DataSet identify data within different data stores such as tables, files, folders and documents.
+Types of Activities:
+Data Movement Activities.
+Data transformation Activities.
+Control flow Activities.
+Linked Services and Datasets in Azure Data factory:
+Triggers in Azure data factory:
+Triggers - you can execute your pipeline
+Triggers determine when a pipeline execution needs to be kicked off.
+Pipelines and triggers have many-to-many relationships(except for the tumbling window trigger).
+Multiple triggers can kick off  a single pipeline, or a single trigger can kick of multiple pipelines.
+Types of Triggers in Azure Data factory:
+1. Schedule Trigger - A trigger that invokes a pipeline on a wall clock schedule
+2. Tumbling window Trigger - A trigger that operates on a periodic interval, while also retaining state.
+3. Event based trigger - A trigger that responds to an event.
+Schedule trigger runs pipeline on a wall clock schedule. This trigger supports periodic and advanced calendar options.
+Tumbling Window Trigger in Azure Data Factory:
+Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start date, while retaining state.
+It has one-to-one relationship with a pipeline.
+Difference between Tumbling window and Schedule window:
+A Schedule Trigger runs according to a schedule but a tumbling window trigger processes continuous, fixed-size, non overlapping time windows and maintains state for each state.
+
+Tumbling window trigger dependency in ADF.
+HourlyLogsPipeline - process logs for every hour and load data into SQL.
+HourlyDataProcessPipeline - take logs hourly data + cust data and it will do some transformation.
+Make sure to run your trigger only if the other trigger  successfully.
+Integration Runtime:
+Azure Integration Runtime is capable of performing below in public network.
+-> Running Dataflows.
+-> Running Copy Activities between cloud data stores.
+-> Running Transform Activities.
+Azure Integration Runtime supports connecting to data stores and compute services with public accessible end points.
+Azure Integration Runtime supports a fully managed, serverless compute in azure.
+Azure Integration Runtime will come by default.
+Self Hosted Integration Runtime in Azure Data Factory:
+Performing data movement activities between cloud data stores and in private network.
+Running transform activities against compute resources .
+Shared Self Hosted Integration Runtime in Azure Data Factory:
+Parameterize Linked Services in Azure Data Factory:
+Parameterize a linked service and pass dynamic values at run time.
+Parameterize Datasets in Azure Data Factory:
+Parameterize a Dataset and pass dynamicvalues at run time.
+Passing Parameters to pipeline in Azure Data Factory:
+System Variables in Azure Data Factory:
+System Variables are available at three scopes. we can use these variables in expressions in Azure Data Factory.
+->Pipeline Scope.
+-> Schedule Trigger Scope.
+-> Tumbling Window Trigger Scope.
+Examples of pipeline system variables:
+@Pipeline.DataFactory.
+@pipeline.Pipeline
+@pipeline.RunId
+@pipeline.TriggerName
+@pipeline.TriggerType
+@pipeline.TriggerId
+@pipeline.TriggerTime
+Examples of Schedule Trigger System Variables:
+@trigger.ScheduledTime
+@trigger.starttime
+Examples of Tumbling window trigger system variables:
+@trigger.output.windowstarttime
+@trigger.output.windowendtime
+Connectors in ADF:
+Azure Data Factory supports more than 80 data stores to work with.
+Copy Data Activity in Azure Data Factory:
+Settings Tab in Azure Data Factory:
+Data Integration Unit:
+Variables in Azure Data Factory:
+Variables are like internal to pipeline and they can be changed inside your pipeline.
+Variables support 3 data types. string, bool, array.
+we refer these user variables as below.
+@variables('variablename')
+Set Variable Activity in Azure Data Factory:
+Use the Set variable activity to set the value of an existing variable of type string, bool, or array defined in Data factory pipeline.
+Append Variable Activity in Azure Data Factory:
+use append variable activity to add a value to an existing array variable defined in data factory pipeline.
+User Properties in ADF:
+User properties help to view addition information while Monitoring Activity runs.
+you can only create 5 properties under user properties.
+Execute pipeline Activity in ADF:
+Execute pipeline activity allows a data factory pipeline to invoke another pipeline.
+Filter Activity in ADF:
+you can use a filter activity in a pipeline to apply a filter expression to an input array.
+Foreach Activity in ADF:
+Foreach Activity defines a repeating control flow in your pipeline. This activity is used to iterate over a collection and executes specified activities in a loop.
+The items property is collection and each property inside collection is referred by @item().
+If condition Activity in Azure Data Factory:
+If condition is similar to programming language if condition.
+wait activity in ADF:
+When you use a wait activity in a pipeline, the pipeline waits for the specified period of time before continuing with execution of subsequent activities.
+until Activity in ADF: Until the condition is true activities inside until activity are going to execute.
+Web Activity in ADF:
+Webhook Activity in ADF:
+Switch case Activity in ADF: similar to programming languages based on cases particular activities are going to execute.
+Lookup Activity in ADF:
+Lookup Activity can retrieve a dataset from any of the Azure Data Factory supported data sources.
+Lookup Activity reads and returns the content of a configuration file or table. It also returns the result of a executing query or stored procedure.
+The output from lookup activity can be used in a subsequent activity.
+Transform Data Activity in ADF:
+Transform Data Activities can be used to modify, clean, join, filter, aggregate, or otherwise transform data while moving it from source to destination.
+
+Mapping data flow:
+Mapping data flows are designed data transformations in Azure Data Factory. Data flows allow data engineers to develop graphical data transformation logic without writing code.
+Data flows are executed as activities within Azure Data factory pipelines using Data Flow Activities.
+ADF internally handles all the code translation, spark optimization and execution of transformation.
+Mapping data flow debug mode in Azure Data Factory:
+Azure Data Factory mapping data flow's debug mode allows you to interactively watch the data shape transform while you build and debug your data flows.
+
+Filter Transformation in Mapping Dataflows:
+Filter transforms allows row filtering based upon a condition. The output stream includes all rows that matching the filtering condition. The filter transformation is similar to a where clause in sql.
+Aggregate Transformation in Mapping Dataflows:
+Aggregate transformation defines aggregations of columns in your data stream. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX and Count grouped by existing or computed columns.
+Exists Transformation in sql:
+Exists transformation is a row filtering transformation that checks whether your data exists in another source or stream. The output stream includes all rows in the left stream that either exist or don't exist in the right stream. The exists transformation is similar to SQL WHERE EXISTS and SQL WHERE NOT EXISTS.
+Union Transformation in ADF:
+Union will combine multiple data streams into one, with the Sql union of those streams as the new output from the Union Transformation.
+Lookup Transformation in ADF:
+A Lookup Transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with the additional columns from the lookup stream.
+Sort Transformation in ADF:
+The Sort Transformation allows you to sort the incoming rows on the current data stream.
+New Branch in DataFlow:
+Add a new branch to do multiple sets of operations and transformations against the same data stream.
+Pivot Transformation in Mapping Data Flow:
+Use the Pivot Transformation to create multiple columns from the unique row value of a single column.
+Un Pivot Transformation in Mapping Data Flow:
+Use Unpivot in ADF Mapping data flow as a way to turn an unnormalized dataset into a more normalized version by expanding values from multiple columns in a single record into multiple records with the same values in a single column.
+Surrogate Key in Azure Data Factory:
+Use the Surrogate Key transformation to add an incrementing key value to each row of data.
+Window Transformation in Mapping Data Flow in ADF:
+Window transformation is where you will define window based aggregations of columns in your data streams. In the Expression Builder, you can define different types of aggregations that are based on data or time windows (SQL over Clause) such as LEAD, LAG, NTILE, CUMEDIST, RANK etc..) A new field will be generated in your output that includes these aggregations.
+Alter Row Transformation:
+Use the Alter Row Transformation to set insert, update, delete and upsert policies on rows. You can add one-to- many conditions as expressions. These conditions should be specified in order of priority, as each row marked with the policy corresponding to the first matching expression. Each of those conditions can result in a row(rows) being inserted, updated, deleted or upserted.
+Alter Row Transformation will work only on database or CosmosDB sinks in your dataflow.
+Flatten Row Transformation:
+Flatten Transformation is particularly useful 
+Parameterize Mapping Data flow in Azure Data Factory:
+Validate Schema in Azure Data factory:
+
+Passing Parameters in Azure Data Factory:
+Schema Drift in Azure Data Factory:
+Schema drift is the case where your sources often change meta data.
+Fields, Columns, and types can be added, removed or changed on the fly.
+Without handling for Schema drift, your data flow becomes vulnerable to upstream data source changes.
+Wrangling Dataflow in Azure Data Factory:
+
+Merge Queries in Wrangling Data flow in Azure Data Factory:
+Merge Queries in Wrangling Data flow are like join in T-SQL.
+Group By in Wrangling Data flow in Azure Data Factory:
+Different Author Modes in Azure Data Factory:
+By default, the Azure Data Factory authors directly against the data factory service. This will have below limitations.
+1. ADF service doesn't include a code repository. Hence ADF Components will be directly published to Data factory service and we cannot perform Partial Saves and we cannot save JSON code for ADF and its components
+2. ADF service is not optimized for collaboration and version control.
+Hence, to provide better Authoring Experience ADF allows you to configure a git repository with either Azure repos or GitHub.
+Advantages of Git Integration:
+1. Version Control.
+2. Partial Saves.
+3. Collaboration and control.
+4. Better CI/CD.
+5. Better Performance.
+Version Control
+1. Ability to track/audit changes.
+2. Ability to revert changes that introduced bugs.
+Partial Saves:
+1. When authoring against the data factory service, you can't save changes as a draft and all publishes must pass data factory validation.
+Collaboration and control
+1. If you have multiple team members contributing to the same factory, you may want to let your teammates collaborate with each other via a code review process.
+Better CI/CD:
+Better Performance:
+An average factory with git integration loads 10 times faster than one authoring against the data factory service.
+Azure Key Vault Secrets in Azure Data Factory:
+Azure Key Vault is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets.
+You can store credentials or secret values in an Azure key vault and use them in Azure Data Factory linked services.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
